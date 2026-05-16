@@ -70,7 +70,7 @@ jobs:
           sleep 100
           hdiutil eject -force /Volumes/'Install macOS ${{ env.installer_name }}'
           sudo rm -rf /Applications/'Install macOS ${{ env.installer_name }}'.app
-          hdiutil resize -size min /tmp/'${{ env.installer_name }}'.dmg
+          sudo hdiutil resize -size min /tmp/'${{ env.installer_name }}'.dmg
           hdiutil convert /tmp/'${{ env.installer_name }}'.dmg -format UDTO -o ~/Desktop/'${{ env.installer_name }}'
           mv -v ~/Desktop/'${{ env.installer_name }}'.cdr ~/Desktop/'${{ env.installer_name }}'.iso
           sudo rm -fv /tmp/'${{ env.installer_name }}'.dmg
